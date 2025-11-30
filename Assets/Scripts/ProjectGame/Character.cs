@@ -2,13 +2,13 @@ using UnityEngine;
 
 internal sealed class Character: MonoBehaviour
 {
-    public ValueComponent Health => health;
-    [SerializeField] private ValueComponent health;
-    public ValueComponent Protection => protection;
-    [SerializeField] private ValueComponent protection;
-    public ValueComponent Initiative => initiative;
-    [SerializeField] private ValueComponent initiative;
-    [SerializeField] private CharacterDescription characterDescription;
+    public ValueComponent Health => _health;
+    [SerializeField] private ValueComponent _health;
+    public ValueComponent Protection => _protection;
+    [SerializeField] private ValueComponent _protection;
+    public ValueComponent Initiative => _initiative;
+    [SerializeField] private ValueComponent _initiative;
+    [SerializeField] private CharacterDescription _characterDescription;
 
     private IPlayer _playerOwner;
 
@@ -16,10 +16,10 @@ internal sealed class Character: MonoBehaviour
     {
         _playerOwner = playerOwner;
 
-        if (!characterDescription) return;
+        if (!_characterDescription) return;
 
-        health.Set(characterDescription.Health);
-        protection.Set(characterDescription.Protection);
-        initiative.Set(characterDescription.Initiative);
+        _health.Set(_characterDescription.Health);
+        _protection.Set(_characterDescription.Protection);
+        _initiative.Set(_characterDescription.Initiative);
     }
 }

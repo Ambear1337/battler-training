@@ -4,14 +4,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CharacterDescription", menuName = "Battler/CharacterDescription", order = 0)]
 public class CharacterDescription: ScriptableObject
 {
-    [SerializeField] private int health;
-    [SerializeField] private int protection;
-    [SerializeField] private int initiative;
+    [SerializeField] private int _health;
+    [SerializeField] private int _protection;
+    [SerializeField] private int _initiative;
 
-    [SerializeField] List<CharacterAbility> abilities;
+    [SerializeField] List<CharacterAbility> _abilities;
 
-    public int Health => health;
-    public int Protection => protection;
-    public int Initiative => initiative;
-    public IReadOnlyList<CharacterAbility> Abilities => abilities;
+    public int Health => _health;
+    public int Protection => _protection;
+    public int Initiative => _initiative;
+    public IReadOnlyList<CharacterAbility> Abilities => _abilities;
 }

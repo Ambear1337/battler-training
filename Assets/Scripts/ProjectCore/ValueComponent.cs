@@ -11,24 +11,41 @@ public class ValueComponent: MonoBehaviour
     public event MinValueChanged MinValueChanged;
     public event MaxValueChanged MaxValueChanged;
 
-    [SerializeField] private int minValue;
-    [SerializeField] private int currentValue;
-    [SerializeField] private int maxValue;
+    [SerializeField] private int _minValue;
+    [SerializeField] private int _currentValue;
+    [SerializeField] private int _maxValue;
 
-    public int MinValue => minValue;
-    public int CurrentValue
+    public int MinValue
     {
-        get => currentValue;
+        get => _minValue;
         set
         {
-            var oldValue = currentValue;
-            currentValue = Math.Clamp(value, minValue, maxValue);
-            CurrentValueChanged.Invoke(oldValue, currentValue);
+            var oldValue = _minValue;
+            _minValue = value;
+            MinValueChanged.Invoke(oldValue, _minValue);
         }
     }
-    public int MaxValue => maxValue;
+    public int CurrentValue
+    {
+        get => _currentValue;
+        set
+        {
+            var oldValue = _currentValue;
+            _currentValue = Math.Clamp(value, _minValue, _maxValue);
+            CurrentValueChanged.Invoke(oldValue, _currentValue);
+        }
+    }
 
-    //ПОМЕНЯТЬ ВСЕ СЕТТЕРЫ
+    public int MaxValue
+    {
+        get => _maxValue;
+        set
+        {
+            var oldValue = _maxValue;
+            _maxValue = value;
+            MaxValueChanged.Invoke(oldValue, _maxValue);
+        }
+    }
 
     public void Set(int value)
     {
@@ -37,12 +54,12 @@ public class ValueComponent: MonoBehaviour
 
     public void SetMin(int value)
     {
-        minValue = value;
+        _minValue = value;
     }
     
     public void SetMax(int value)
     {
-        maxValue = value;
+        _maxValue = value;
     }
 
     public void Add(int value)
@@ -57,11 +74,11 @@ public class ValueComponent: MonoBehaviour
 
     public void AddMax(int value)
     {
-        maxValue += value;
+        _maxValue += value;
     }
 
     public void SubMax(int value)
     {
-        maxValue -= value;
+        _maxValue -= value;
     }
 }
