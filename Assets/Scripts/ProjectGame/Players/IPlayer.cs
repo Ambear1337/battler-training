@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class IPlayer
+public interface IPlayer
 {
-    
+    public void BeginTurn();
+    public void EndTurn();
 }
