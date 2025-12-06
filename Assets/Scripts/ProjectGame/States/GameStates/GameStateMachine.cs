@@ -13,16 +13,6 @@ internal sealed class GameStateMachine
     {
         _currentGameState = nextState;
 
-        switch (_currentGameState)
-        {
-            case GameState.InitGame:
-                break;
-            case GameState.HumanPlayerTurn:
-                break;
-            case GameState.AIPlayerTurn:
-                break;
-            case GameState.EndGame:
-                break;
-        }
+        
     }
 }

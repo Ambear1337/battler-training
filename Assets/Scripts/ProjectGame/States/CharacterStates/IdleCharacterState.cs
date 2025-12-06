@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public sealed class IdleCharacterState: ICharacterState
+public sealed class IdleCharacterState: IState
 {
-    public event ChangeCharacterState ChangeCharacterState;
+    public event ChangeState ChangeState;
     public void EnterState()
     {
         

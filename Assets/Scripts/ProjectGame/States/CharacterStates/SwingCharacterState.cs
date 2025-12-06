@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class SwingCharacterState: ICharacterState
+public class SwingCharacterState: IState
 {
-    public event ChangeCharacterState ChangeCharacterState;
+    public event ChangeState ChangeState;
     public void EnterState()
     {
         

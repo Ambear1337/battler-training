@@ -4,26 +4,32 @@ using UnityEngine;
 
 public sealed class FieldCells: SceneSingleton<FieldCells>
 {
-    [SerializeField] private GameObject[] _fieldCellsGameObjects;
-    private GameObject[] _leftFieldCellsGameObjects = new GameObject[4];
-    private GameObject[] _rightFieldCellsGameObjects = new GameObject[4];
-    private GameObject[] _occupiedCellsGameObjects;
+    [SerializeField] private FieldCell[] _fieldCells;
+    private FieldCell[] _leftFieldCells = new FieldCell[4];
+    private FieldCell[] _rightFieldCells = new FieldCell[4];
+    private FieldCell[] _occupiedCells;
 
-    private void Awake()
+    protected override void OnSingletonInit()
     {
         for (int i = 0; i < 4; i++)
         {
-            _leftFieldCellsGameObjects[i] = _fieldCellsGameObjects[i];
+            _leftFieldCells[i] = _fieldCells[i];
         }
 
-        for (int i = 4; i < 8; i++)
+        for (int i = 0; i < 4; i++)
         {
-            _rightFieldCellsGameObjects[i] = _fieldCellsGameObjects[i];
+            _rightFieldCells[i] = _fieldCells[i+4];
         }
     }
 
-    public GameObject GetRandomFreeCell()
+    public FieldCell GetRandomFreeCell()
     {
-        return _fieldCellsGameObjects.RandomExclude(_occupiedCellsGameObjects)[0];
+        return _fieldCells.RandomExclude(_occupiedCells)[0];
+    }
+
+    public void OccupieCell(int cellIndex)
+    {
+        _fieldCells[cellIndex].IsFree = false;
+        _occupiedCells = new FieldCell[] {_fieldCells[cellIndex]};
     }
 }
