@@ -1,25 +1,34 @@
+using ProjectGame.Players;
 using UnityEngine;
 
-internal sealed class Character: MonoBehaviour
+namespace ProjectGame
 {
-    public ValueComponent Health => _health;
-    [SerializeField] private ValueComponent _health;
-    public ValueComponent Protection => _protection;
-    [SerializeField] private ValueComponent _protection;
-    public ValueComponent Initiative => _initiative;
-    [SerializeField] private ValueComponent _initiative;
-    [SerializeField] private CharacterDescription _characterDescription;
-
-    private IPlayer _playerOwner;
-
-    public void SetupCharacter(IPlayer playerOwner)
+    internal sealed class Character: MonoBehaviour
     {
-        _playerOwner = playerOwner;
+        public ValueComponent Health => _health;
+        [SerializeField] private ValueComponent _health;
+        public ValueComponent Protection => _protection;
+        [SerializeField] private ValueComponent _protection;
+        public ValueComponent Initiative => _initiative;
+        [SerializeField] private ValueComponent _initiative;
 
-        if (!_characterDescription) return;
+        [SerializeField] private CharacterMover _characterMover;
+        public CharacterMover CharacterMover => _characterMover;
+    
+        private CharacterDescription _characterDescription;
 
-        _health.Set(_characterDescription.Health);
-        _protection.Set(_characterDescription.Protection);
-        _initiative.Set(_characterDescription.Initiative);
+        private IPlayer _playerOwner;
+
+        public void SetupCharacter(IPlayer playerOwner, CharacterDescription characterDescription)
+        {
+            _playerOwner = playerOwner;
+            _characterDescription = characterDescription;
+
+            if (!characterDescription) return;
+
+            _health.Set(characterDescription.Health);
+            _protection.Set(characterDescription.Protection);
+            _initiative.Set(characterDescription.Initiative);
+        }
     }
 }

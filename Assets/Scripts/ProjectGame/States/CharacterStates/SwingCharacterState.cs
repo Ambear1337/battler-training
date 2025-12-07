@@ -1,14 +1,16 @@
-using UnityEngine;
-
-public class SwingCharacterState: IState
+namespace ProjectGame.States.CharacterStates
 {
-    public event ChangeState ChangeState;
-    public void EnterState()
+    public class SwingCharacterState: IState
     {
+        public event ChangeState ChangeState;
         
-    }
-    public void ExitState()
-    {
+        public void EnterState()
+        {
         
+        }
+        public void ExitState()
+        {
+        
+        }
     }
 }

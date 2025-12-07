@@ -1,35 +1,75 @@
+using System.Collections.Generic;
 using ProjectCore;
 using ProjectCore.Extensions;
 using UnityEngine;
 
-public sealed class FieldCells: SceneSingleton<FieldCells>
+namespace ProjectGame
 {
-    [SerializeField] private FieldCell[] _fieldCells;
-    private FieldCell[] _leftFieldCells = new FieldCell[4];
-    private FieldCell[] _rightFieldCells = new FieldCell[4];
-    private FieldCell[] _occupiedCells;
-
-    protected override void OnSingletonInit()
+    public sealed class FieldCells: SceneSingleton<FieldCells>
     {
-        for (int i = 0; i < 4; i++)
+        public int Count => _fieldCells.Count;
+    
+        [SerializeField] private List<FieldCell> _fieldCells;
+
+        private Dictionary<FieldCellPositionType, List<FieldCell>> _typedFieldCells;
+        private List<FieldCell> _occupiedCells;
+
+        protected override void OnSingletonInit()
         {
-            _leftFieldCells[i] = _fieldCells[i];
+            _occupiedCells = new List<FieldCell>(_fieldCells.Count);
+            _typedFieldCells = new Dictionary<FieldCellPositionType, List<FieldCell>>(2);
+            _typedFieldCells.Add(FieldCellPositionType.Left, new List<FieldCell>(4));
+            _typedFieldCells.Add(FieldCellPositionType.Right, new List<FieldCell>(4));
+            
+            for (int i = 0; i < 4; i++)
+            {
+                _typedFieldCells[FieldCellPositionType.Left].Add(_fieldCells[i]);
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                _typedFieldCells[FieldCellPositionType.Right].Add(_fieldCells[i+4]);
+            }
         }
 
-        for (int i = 0; i < 4; i++)
+        public int GetRandomFreeCell()
         {
-            _rightFieldCells[i] = _fieldCells[i+4];
+            var freeCell = _fieldCells.RandomExclude(_occupiedCells)[0];
+            var index = _fieldCells.IndexOf(freeCell);
+            
+            return index;
         }
-    }
 
-    public FieldCell GetRandomFreeCell()
-    {
-        return _fieldCells.RandomExclude(_occupiedCells)[0];
-    }
+        public int GetFreeCell(FieldCellPositionType positionType)
+        {
+            var typedFreeCells = _typedFieldCells[positionType];
+            var freeCell = typedFreeCells.RandomExclude(_occupiedCells)[0];
+            var index = _fieldCells.IndexOf(freeCell);
 
-    public void OccupieCell(int cellIndex)
-    {
-        _fieldCells[cellIndex].IsFree = false;
-        _occupiedCells = new FieldCell[] {_fieldCells[cellIndex]};
+            return index;
+        }
+
+        public bool OccupieCell(int cellIndex, out Transform cellTransform)
+        {
+            cellTransform = null;
+        
+            if (_occupiedCells.Contains(_fieldCells[cellIndex]))
+            {
+                return false;
+            }
+        
+            _fieldCells[cellIndex].IsFree = false;
+            _occupiedCells.Add(_fieldCells[cellIndex]);
+
+            cellTransform = _fieldCells[cellIndex].transform;
+
+            return true;
+        }
+
+        public void FreeCell(int cellIndex)
+        {
+            _fieldCells[cellIndex].IsFree = true;
+            _occupiedCells.Remove(_fieldCells[cellIndex]);
+        }
     }
 }

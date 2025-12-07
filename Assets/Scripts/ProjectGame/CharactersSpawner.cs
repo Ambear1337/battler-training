@@ -1,17 +1,35 @@
+using System.Collections.Generic;
+using ProjectCore;
+using ProjectCore.Extensions;
+using ProjectGame.Players;
 using UnityEngine;
 
-internal sealed class CharactersSpawner: MonoBehaviour
+namespace ProjectGame
 {
-    public void SpawnPlayerCharacter()
+    internal sealed class CharactersSpawner: SceneSingleton<CharactersSpawner>
     {
-        //Ищет рандмоную свободную клетку на стороне игрока в FieldCells
-        FieldCells.SceneInstance.GetRandomFreeCell();
-        //Спавнит персонажа игрока из пула персонажей
+        [SerializeField] private CharacterDescription[] _characterDescriptions;
+    
+        public Character SpawnCharacter(IPlayer owner)
+        {
+            int randomCell = FieldCells.SceneInstance.GetFreeCell(FieldCellPositionType.Left);
+            
+            //Спавнит персонажа игрока из пула персонажей
+            CharactersPool.SceneInstance.Pool.Get(out var character);
         
-    }
+            character.SetupCharacter(owner, _characterDescriptions.TakeRandom());
 
-    public void SpawnAIPlayerCharacter()
-    {
-        
+            character.CharacterMover.TeleportCharacter(randomCell, character);
+
+            return character;
+        }
+
+        public void ClearCharacters(List<Character> characters)
+        {
+            for (int characterIndex = 0; characterIndex < characters.Count; characterIndex++)
+            {
+                CharactersPool.SceneInstance.Pool.Release(characters[characterIndex]);
+            }
+        }
     }
 }

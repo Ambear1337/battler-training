@@ -1,14 +1,15 @@
-using UnityEngine;
-
-public sealed class IdleCharacterState: IState
+namespace ProjectGame.States.CharacterStates
 {
-    public event ChangeState ChangeState;
-    public void EnterState()
+    public sealed class IdleCharacterState: IState
     {
+        public event ChangeState ChangeState;
+        public void EnterState()
+        {
         
-    }
-    public void ExitState()
-    {
+        }
+        public void ExitState()
+        {
         
+        }
     }
 }

@@ -22,7 +22,7 @@ public class ValueComponent: MonoBehaviour
         {
             var oldValue = _minValue;
             _minValue = value;
-            MinValueChanged.Invoke(oldValue, _minValue);
+            MinValueChanged?.Invoke(oldValue, _minValue);
         }
     }
     public int CurrentValue
@@ -32,7 +32,7 @@ public class ValueComponent: MonoBehaviour
         {
             var oldValue = _currentValue;
             _currentValue = Math.Clamp(value, _minValue, _maxValue);
-            CurrentValueChanged.Invoke(oldValue, _currentValue);
+            CurrentValueChanged?.Invoke(oldValue, _currentValue);
         }
     }
 
@@ -43,7 +43,7 @@ public class ValueComponent: MonoBehaviour
         {
             var oldValue = _maxValue;
             _maxValue = value;
-            MaxValueChanged.Invoke(oldValue, _maxValue);
+            MaxValueChanged?.Invoke(oldValue, _maxValue);
         }
     }
 

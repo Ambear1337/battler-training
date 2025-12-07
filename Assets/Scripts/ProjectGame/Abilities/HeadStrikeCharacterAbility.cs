@@ -1,9 +1,10 @@
-using UnityEngine;
-
-internal class HeadStrikeCharacterAbility : CharacterAbility
+namespace ProjectGame.Abilities
 {
-    public override void TryUseAbility()
+    internal class HeadStrikeCharacterAbility : CharacterAbility
     {
+        public override void TryUseAbility()
+        {
         
+        }
     }
 }

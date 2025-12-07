@@ -1,9 +1,10 @@
-using UnityEngine;
-
-internal class MoveCharacterAbility : CharacterAbility
+namespace ProjectGame.Abilities
 {
-    public override void TryUseAbility()
+    internal class MoveCharacterAbility : CharacterAbility
     {
+        public override void TryUseAbility()
+        {
         
+        }
     }
 }

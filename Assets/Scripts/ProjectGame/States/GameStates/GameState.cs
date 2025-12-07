@@ -1,9 +1,10 @@
-using UnityEngine;
-
-internal enum GameState
+namespace ProjectGame.States.GameStates
 {
-    InitGame,
-    HumanPlayerTurn,
-    AIPlayerTurn,
-    EndGame
+    internal enum GameState
+    {
+        InitGame,
+        HumanPlayerTurn,
+        AIPlayerTurn,
+        EndGame
+    }
 }

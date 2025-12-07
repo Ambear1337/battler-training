@@ -1,7 +1,11 @@
 using ProjectCore;
-using UnityEngine;
 
-public sealed class TurnBasedController: SceneSingleton<TurnBasedController>
+namespace ProjectGame
 {
-    
+    public sealed class TurnBasedController: SceneSingleton<TurnBasedController>
+    {
+        
+        
+        //Смена хода
+    }
 }

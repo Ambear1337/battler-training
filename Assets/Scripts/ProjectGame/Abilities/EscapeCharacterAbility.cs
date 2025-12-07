@@ -1,9 +1,10 @@
-using UnityEngine;
-
-internal class EscapeCharacterAbility : CharacterAbility
+namespace ProjectGame.Abilities
 {
-    public override void TryUseAbility()
+    internal class EscapeCharacterAbility : CharacterAbility
     {
-        
+        public override void TryUseAbility()
+        {
+            
+        }
     }
 }

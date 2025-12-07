@@ -1,14 +1,15 @@
-using UnityEngine;
-
-public class AIPlayer: IPlayer
+namespace ProjectGame.Players
 {
-    public void BeginTurn()
+    public class AIPlayer: IPlayer
     {
-        throw new System.NotImplementedException();
-    }
+        public void BeginTurn()
+        {
+            throw new System.NotImplementedException();
+        }
 
-    public void EndTurn()
-    {
-        throw new System.NotImplementedException();
+        public void EndTurn()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

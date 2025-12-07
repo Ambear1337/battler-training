@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public abstract class CharacterAbility : ScriptableObject
+namespace ProjectGame.Abilities
 {
-    public virtual void TryUseAbility()
+    public abstract class CharacterAbility : ScriptableObject
     {
+        public virtual void TryUseAbility()
+        {
         
+        }
     }
 }

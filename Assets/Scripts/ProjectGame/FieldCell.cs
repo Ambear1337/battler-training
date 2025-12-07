@@ -1,20 +1,23 @@
 using UnityEngine;
 
-public delegate void OccupieCell(bool result);
-
-public sealed class FieldCell: MonoBehaviour
+namespace ProjectGame
 {
-    public event OccupieCell OccupieCell;
-    
-    private bool _isFree = true;
+    public delegate void OccupieCell(bool result);
 
-    public bool IsFree
+    public sealed class FieldCell: MonoBehaviour
     {
-        get => _isFree;
-        set
+        public event OccupieCell OccupieCell;
+    
+        private bool _isFree = true;
+
+        public bool IsFree
         {
-            _isFree = value;
-            OccupieCell.Invoke(_isFree);
+            get => _isFree;
+            set
+            {
+                _isFree = value;
+                OccupieCell?.Invoke(_isFree);
+            }
         }
     }
 }

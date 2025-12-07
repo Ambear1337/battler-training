@@ -1,9 +1,10 @@
-using UnityEngine;
-
-internal class SwingCharacterAbility : CharacterAbility
+namespace ProjectGame.Abilities
 {
-    public override void TryUseAbility()
+    internal class SwingCharacterAbility : CharacterAbility
     {
+        public override void TryUseAbility()
+        {
         
+        }
     }
 }

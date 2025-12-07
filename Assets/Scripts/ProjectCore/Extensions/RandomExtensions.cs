@@ -66,13 +66,18 @@ namespace ProjectCore.Extensions
             return array[index];
         }
 
-        public static T[] RandomExclude<T>(this T[] array, T[] exclude, int count = 1)
+        public static List<T> RandomExclude<T>(this List<T> array, List<T> exclude, int count = 1)
         {
             List<T> tmp = new List<T>(array);
             List<T> final = new List<T>();
 
-            foreach (var ex in exclude)
-                tmp.Remove(ex);
+            if (exclude != null)
+            {
+                for (int excludeIndex = 0; excludeIndex < exclude.Count; excludeIndex++)
+                {
+                    tmp.Remove(exclude[excludeIndex]);
+                }
+            }
 
             for (int i = 0; i < count; i++)
             {
@@ -85,7 +90,7 @@ namespace ProjectCore.Extensions
                 tmp.Remove(value);
             }
 
-            return final.ToArray();
+            return final;
         }
 
         public static bool CalculateRandomChance(int chance)

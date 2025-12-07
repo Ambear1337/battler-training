@@ -1,7 +1,8 @@
-using UnityEngine;
-
-public interface IPlayer
+namespace ProjectGame.Players
 {
-    public void BeginTurn();
-    public void EndTurn();
+    public interface IPlayer
+    {
+        public void BeginTurn();
+        public void EndTurn();
+    }
 }

@@ -1,9 +1,10 @@
-using UnityEngine;
-
-internal class HitJawCharacterAbility : CharacterAbility
+namespace ProjectGame.Abilities
 {
-    public override void TryUseAbility()
+    internal class HitJawCharacterAbility : CharacterAbility
     {
+        public override void TryUseAbility()
+        {
         
+        }
     }
 }

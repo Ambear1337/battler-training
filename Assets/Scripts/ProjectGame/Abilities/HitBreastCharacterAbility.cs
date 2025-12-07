@@ -1,9 +1,10 @@
-using UnityEngine;
-
-internal class HitBreastCharacterAbility : CharacterAbility
+namespace ProjectGame.Abilities
 {
-    public override void TryUseAbility()
+    internal class HitBreastCharacterAbility : CharacterAbility
     {
+        public override void TryUseAbility()
+        {
         
+        }
     }
 }

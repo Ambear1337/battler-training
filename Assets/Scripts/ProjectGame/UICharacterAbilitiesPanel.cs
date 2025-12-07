@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public sealed class UICharacterAbilitiesPanel: MonoBehaviour
+namespace ProjectGame
 {
+    public sealed class UICharacterAbilitiesPanel: MonoBehaviour
+    {
     
+    }
 }
