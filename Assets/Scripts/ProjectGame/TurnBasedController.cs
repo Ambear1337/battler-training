@@ -4,8 +4,14 @@ namespace ProjectGame
 {
     public sealed class TurnBasedController: SceneSingleton<TurnBasedController>
     {
+        public void HumanPlayerTurn()
+        {
+            
+        }
         
-        
-        //Смена хода
+        public void AITurn()
+        {
+            
+        }
     }
 }

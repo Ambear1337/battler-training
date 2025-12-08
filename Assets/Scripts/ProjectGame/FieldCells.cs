@@ -11,24 +11,24 @@ namespace ProjectGame
     
         [SerializeField] private List<FieldCell> _fieldCells;
 
-        private Dictionary<FieldCellPositionType, List<FieldCell>> _typedFieldCells;
+        private Dictionary<FieldCellSide, List<FieldCell>> _typedFieldCells;
         private List<FieldCell> _occupiedCells;
 
         protected override void OnSingletonInit()
         {
             _occupiedCells = new List<FieldCell>(_fieldCells.Count);
-            _typedFieldCells = new Dictionary<FieldCellPositionType, List<FieldCell>>(2);
-            _typedFieldCells.Add(FieldCellPositionType.Left, new List<FieldCell>(4));
-            _typedFieldCells.Add(FieldCellPositionType.Right, new List<FieldCell>(4));
+            _typedFieldCells = new Dictionary<FieldCellSide, List<FieldCell>>(2);
+            _typedFieldCells.Add(FieldCellSide.Left, new List<FieldCell>(4));
+            _typedFieldCells.Add(FieldCellSide.Right, new List<FieldCell>(4));
             
             for (int i = 0; i < 4; i++)
             {
-                _typedFieldCells[FieldCellPositionType.Left].Add(_fieldCells[i]);
+                _typedFieldCells[FieldCellSide.Left].Add(_fieldCells[i]);
             }
 
             for (int i = 0; i < 4; i++)
             {
-                _typedFieldCells[FieldCellPositionType.Right].Add(_fieldCells[i+4]);
+                _typedFieldCells[FieldCellSide.Right].Add(_fieldCells[i+4]);
             }
         }
 
@@ -40,9 +40,9 @@ namespace ProjectGame
             return index;
         }
 
-        public int GetFreeCell(FieldCellPositionType positionType)
+        public int GetFreeCell(FieldCellSide side)
         {
-            var typedFreeCells = _typedFieldCells[positionType];
+            var typedFreeCells = _typedFieldCells[side];
             var freeCell = typedFreeCells.RandomExclude(_occupiedCells)[0];
             var index = _fieldCells.IndexOf(freeCell);
 

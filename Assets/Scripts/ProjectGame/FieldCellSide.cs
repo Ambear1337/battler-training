@@ -1,6 +1,6 @@
 ﻿namespace ProjectGame
 {
-    public enum FieldCellPositionType
+    public enum FieldCellSide
     {
         Left,
         Right

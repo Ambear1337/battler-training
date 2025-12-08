@@ -12,7 +12,21 @@ namespace ProjectGame
     
         public Character SpawnCharacter(IPlayer owner)
         {
-            int randomCell = FieldCells.SceneInstance.GetFreeCell(FieldCellPositionType.Left);
+            int randomCell;
+
+            if (owner is HumanPlayer humanPlayer)
+            {
+                randomCell = FieldCells.SceneInstance.GetFreeCell(FieldCellSide.Left);
+            }
+            else if (owner is AIPlayer aiPlayer)
+            {
+                randomCell = FieldCells.SceneInstance.GetFreeCell(FieldCellSide.Right);
+            }
+            else
+            {
+                randomCell = 0;
+                Debug.LogError("RandomCell is not defiened");
+            }
             
             //Спавнит персонажа игрока из пула персонажей
             CharactersPool.SceneInstance.Pool.Get(out var character);
