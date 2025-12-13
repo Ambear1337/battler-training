@@ -1,8 +1,17 @@
+using System;
+using UnityEngine;
+
 namespace ProjectGame.States.GameStates
 {
-    internal class GameState: IState
+    internal class InitGameState: MonoBehaviour, IState
     {
         public event ChangeState ChangeState;
+
+        private void Awake()
+        {
+            EnterState();
+        }
+
         public void EnterState()
         {
             
@@ -15,7 +24,7 @@ namespace ProjectGame.States.GameStates
 
         public void ExitState()
         {
-            // Переход
+            // Переход в HumanPlayerTurnGameState или в AIPlayerTurnGameState в зависимости от инициативы
             throw new System.NotImplementedException();
         }
     }

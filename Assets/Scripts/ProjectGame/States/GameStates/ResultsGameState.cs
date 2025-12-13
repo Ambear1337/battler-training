@@ -1,6 +1,8 @@
+using UnityEngine;
+
 namespace ProjectGame.States.GameStates
 {
-    internal class ResultsGameState: IState
+    internal class ResultsGameState: MonoBehaviour, IState
     {
         public event ChangeState ChangeState;
         public void EnterState()

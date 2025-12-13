@@ -1,6 +1,8 @@
+using UnityEngine;
+
 namespace ProjectGame.States.GameStates
 {
-    public class AIPlayerTurnGameState: IState
+    public class AIPlayerTurnGameState: MonoBehaviour, IState
     {
         public event ChangeState ChangeState;
         
