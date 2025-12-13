@@ -49,7 +49,7 @@ namespace ProjectGame
             return index;
         }
 
-        public bool OccupieCell(int cellIndex, out Transform cellTransform)
+        public bool OccupyCell(int cellIndex, out Transform cellTransform)
         {
             cellTransform = null;
         

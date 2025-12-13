@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace ProjectGame
 {
-    public delegate void OccupieCell(bool result);
+    public delegate void OccupyCell(bool result);
 
     public sealed class FieldCell: MonoBehaviour
     {
-        public event OccupieCell OccupieCell;
+        public event OccupyCell OccupyCell;
     
         private bool _isFree = true;
 
@@ -16,7 +16,7 @@ namespace ProjectGame
             set
             {
                 _isFree = value;
-                OccupieCell?.Invoke(_isFree);
+                OccupyCell?.Invoke(_isFree);
             }
         }
     }

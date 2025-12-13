@@ -16,7 +16,7 @@ namespace ProjectGame
         {
             deltaIndex = Math.Clamp(_currentCellIndex + deltaIndex, 0, FieldCells.SceneInstance.Count);
             
-            if (FieldCells.SceneInstance.OccupieCell(deltaIndex, out var cellTransform))
+            if (FieldCells.SceneInstance.OccupyCell(deltaIndex, out var cellTransform))
             {
                 if (_currentCellIndex != -1)
                 {
@@ -38,7 +38,7 @@ namespace ProjectGame
         {
             cellIndex = Math.Clamp(cellIndex, 0, FieldCells.SceneInstance.Count);
             
-            if (FieldCells.SceneInstance.OccupieCell(cellIndex, out var cellTransform))
+            if (FieldCells.SceneInstance.OccupyCell(cellIndex, out var cellTransform))
             {
                 if (_currentCellIndex != -1)
                 {
