@@ -7,9 +7,10 @@ namespace ProjectGame.States.CharacterStates
         {
         
         }
-        public void ExitState()
+
+        public void ExitState(IState nextState)
         {
-        
+            ChangeState?.Invoke(nextState);
         }
     }
 }

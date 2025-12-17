@@ -30,6 +30,21 @@ namespace ProjectGame.Players
             
             _charactersSquad.Add(character);
         }
+
+        public int CalculateAverageInitative()
+        {
+            if (_charactersSquad == null || _charactersSquad.Count == 0)
+                return 0;
+            
+            int sum = 0;
+            
+            for (int i = 0; i < _charactersSquad.Count; i++)
+            {
+                sum += _charactersSquad[i].Initiative.CurrentValue;
+            }
+
+            return (int)Math.Round((double)sum / _charactersSquad.Count);
+        }
         
         public void BeginTurn()
         {

@@ -6,5 +6,6 @@ namespace ProjectGame.Players
     {
         public void BeginTurn();
         public void EndTurn();
+        public int CalculateAverageInitative();
     }
 }

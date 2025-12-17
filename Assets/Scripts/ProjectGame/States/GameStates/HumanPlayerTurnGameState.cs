@@ -10,9 +10,9 @@ namespace ProjectGame.States.GameStates
             throw new System.NotImplementedException();
         }
 
-        public void ExitState()
+        public void ExitState(IState nextState)
         {
-            throw new System.NotImplementedException();
+            ChangeState?.Invoke(nextState);
         }
     }
 }

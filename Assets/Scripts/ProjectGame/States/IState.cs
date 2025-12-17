@@ -7,6 +7,6 @@ namespace ProjectGame.States
         public event ChangeState ChangeState;
     
         public void EnterState();
-        public void ExitState();
+        public void ExitState(IState nextState);
     }
 }
