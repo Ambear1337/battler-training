@@ -8,19 +8,19 @@ namespace ProjectGame.States.GameStates
     {
         public event ChangeState ChangeState;
 
-        private void Awake()
-        {
-            EnterState();
-        }
-
         public void EnterState()
         {
+            //Calculate inititatives
+            //Change state on result of calculations
             
+            
+            
+            ChangeState?.Invoke(this);
         }
 
         public void ExitState(IState nextState)
         {
-            ChangeState.Invoke(nextState);
+            
         }
     }
 }

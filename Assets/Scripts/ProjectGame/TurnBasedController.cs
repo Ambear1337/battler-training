@@ -9,6 +9,8 @@ namespace ProjectGame
     {
         private IState _currentState = new InitGameState();
 
+        private Character _currentActingCharacter;
+
         public IState CurrentState
         {
             get => _currentState;
@@ -23,6 +25,11 @@ namespace ProjectGame
         public void ChangeState(IState newState)
         {
             _currentState = newState;
+        }
+
+        public void CalculateCharacterWithMostInitiative()
+        {
+            
         }
     }
 }

@@ -31,19 +31,22 @@ namespace ProjectGame.Players
             _charactersSquad.Add(character);
         }
 
-        public int CalculateAverageInitative()
+        public int CalculateCharacterWithMostInitative()
         {
-            if (_charactersSquad == null || _charactersSquad.Count == 0)
+            if (_charactersSquad.Count == 0) 
                 return 0;
-            
-            int sum = 0;
+
+            int maxInitiative = 0;
             
             for (int i = 0; i < _charactersSquad.Count; i++)
             {
-                sum += _charactersSquad[i].Initiative.CurrentValue;
+                if (_charactersSquad[i].Initiative.CurrentValue > maxInitiative)
+                {
+                    maxInitiative = _charactersSquad[i].Initiative.CurrentValue;
+                }
             }
 
-            return (int)Math.Round((double)sum / _charactersSquad.Count);
+            return maxInitiative;
         }
         
         public void BeginTurn()
