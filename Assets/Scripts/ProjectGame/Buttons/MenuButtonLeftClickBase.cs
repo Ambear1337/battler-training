@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace ProjectGame
+namespace ProjectGame.Buttons
 {
     public abstract class MenuButtonLeftClickBase : MonoBehaviour, ISubmitHandler, IPointerClickHandler
     {

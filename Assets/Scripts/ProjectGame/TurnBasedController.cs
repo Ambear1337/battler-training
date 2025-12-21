@@ -17,8 +17,6 @@ namespace ProjectGame
         private Queue<Character> _charactersQueue;
         
         private Queue<Character> _currentCharactersQueue;
-        
-        //private EventBinding<CharacterEvent> _characterEventBinding;
 
         protected override void OnSingletonInit()
         {
@@ -37,6 +35,16 @@ namespace ProjectGame
             ChangeCurrentActingCharacter();
         }
 
+        private void OnEnable()
+        {
+            
+        }
+
+        private void OnDisable()
+        {
+            
+        }
+
         public void RegisterCharacter(Character character)
         {
             _characters.Add(character);
@@ -47,9 +55,9 @@ namespace ProjectGame
             _characters.Remove(character);
         }
 
-        public void SortCharactersByInitative()
+        private void SortCharactersByInitative()
         {
-            List<Character> tempCharacters = new List<Character>(_characters);
+            var tempCharacters = new List<Character>(_characters);
 
             tempCharacters.Sort((previousCharacter, nextCharacter) =>
             {
@@ -61,13 +69,42 @@ namespace ProjectGame
             _charactersQueue = new Queue<Character>(tempCharacters);
         }
 
-        public void ChangeCurrentActingCharacter()
+        private void ChangeCurrentActingCharacter()
         {
             _currentActingCharacter = _currentCharactersQueue.Dequeue();
 
-            EventBus<CharacterEvent>.Raise(new CharacterEvent{Character = _currentActingCharacter});
+            EventBus<CharacterEvent>.Raise(new CharacterEvent
+            {
+                Character = _currentActingCharacter
+            });
             
-            Debug.LogError("Current acting character: " + _currentActingCharacter.gameObject.GetFullScenePath());
+            EventBus<UIPlayerTurnTextEvent>.Raise(new UIPlayerTurnTextEvent()
+            {
+                Player = _currentActingCharacter.PlayerOwner
+            });
+            
+            Debug.LogError($"Current acting character: {_currentActingCharacter.gameObject.GetFullScenePath()}, " +
+                           $"player: {_currentActingCharacter.PlayerOwner}");
+        }
+
+        private void SkipPlayerTurn(IPlayer player)
+        {
+            if (player == _currentActingCharacter.PlayerOwner)
+            {
+                ChangeCurrentActingCharacter();
+                
+                
+            }
+        }
+
+        private void SetHumanPlayer()
+        {
+            
+        }
+
+        private void SetAIPlayer()
+        {
+            
         }
     }
 }

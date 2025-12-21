@@ -2,7 +2,7 @@ using ProjectEventBus;
 
 namespace ProjectGame
 {
-    public class CharacterEvent: IBusEvent
+    public struct CharacterEvent: IBusEvent
     {
         public Character Character;
     }
