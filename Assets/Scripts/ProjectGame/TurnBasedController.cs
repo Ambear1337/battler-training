@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
 using ProjectCore;
+using ProjectEventBus;
 using ProjectGame.Players;
 using ProjectGame.States;
 using UnityEngine;
 
 namespace ProjectGame
 {
-    public delegate void CurrentCharacterChangedHandler(Character character);
-    
     [AllowCreateInstance]
     public sealed class TurnBasedController: SceneSingleton<TurnBasedController>
     {
@@ -19,7 +18,7 @@ namespace ProjectGame
         
         private Queue<Character> _currentCharactersQueue;
         
-        public event  CurrentCharacterChangedHandler CurrentCharacterChanged;
+        //private EventBinding<CharacterEvent> _characterEventBinding;
 
         protected override void OnSingletonInit()
         {
@@ -35,13 +34,7 @@ namespace ProjectGame
 
             _currentCharactersQueue = new Queue<Character>(_charactersQueue);
             
-            //Change character() {
-            _currentActingCharacter = _currentCharactersQueue.Dequeue();
-
-            CurrentCharacterChanged?.Invoke(_currentActingCharacter);
-            
-            Debug.LogError("Current acting character: " + _currentActingCharacter.gameObject.GetFullScenePath());
-            //}
+            ChangeCurrentActingCharacter();
         }
 
         public void RegisterCharacter(Character character)
@@ -66,6 +59,15 @@ namespace ProjectGame
             });
             
             _charactersQueue = new Queue<Character>(tempCharacters);
+        }
+
+        public void ChangeCurrentActingCharacter()
+        {
+            _currentActingCharacter = _currentCharactersQueue.Dequeue();
+
+            EventBus<CharacterEvent>.Raise(new CharacterEvent{Character = _currentActingCharacter});
+            
+            Debug.LogError("Current acting character: " + _currentActingCharacter.gameObject.GetFullScenePath());
         }
     }
 }
