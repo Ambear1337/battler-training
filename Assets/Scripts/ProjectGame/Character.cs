@@ -1,9 +1,10 @@
+using System;
 using ProjectGame.Players;
 using UnityEngine;
 
 namespace ProjectGame
 {
-    internal sealed class Character: MonoBehaviour
+    public sealed class Character: MonoBehaviour
     {
         public ValueComponent Health => _health;
         [SerializeField] private ValueComponent _health;
@@ -18,6 +19,7 @@ namespace ProjectGame
         private CharacterDescription _characterDescription;
 
         private IPlayer _playerOwner;
+        public IPlayer PlayerOwner => _playerOwner;
 
         public void SetupCharacter(IPlayer playerOwner, CharacterDescription characterDescription)
         {
@@ -26,9 +28,23 @@ namespace ProjectGame
 
             if (!characterDescription) return;
 
+            _health.SetMax(characterDescription.Health);
             _health.Set(characterDescription.Health);
+            _protection.SetMax(characterDescription.Protection);
             _protection.Set(characterDescription.Protection);
+            _initiative.SetMax(characterDescription.Initiative);
             _initiative.Set(characterDescription.Initiative);
+        }
+
+        private void OnEnable()
+        {
+            TurnBasedController.SceneInstance.RegisterCharacter(this);
+        }
+
+        private void OnDisable()
+        {
+            if (!TurnBasedController.IsInstanceNull)
+                TurnBasedController.SceneInstance.UnregisterCharacter(this);
         }
     }
 }

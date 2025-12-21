@@ -4,6 +4,7 @@ using UnityEngine.Pool;
 
 namespace ProjectGame
 {
+    [AllowFindInstanceIfNull]
     internal class CharactersPool: SceneSingleton<CharactersPool>
     {
         // The pool holds plain GameObjects (you can swap this for any component type).

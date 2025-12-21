@@ -799,106 +799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5dc2bb4b39ff374d84d72795a350f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ProjectGame::FieldCell
---- !u!1 &438207983
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 438207989}
-  - component: {fileID: 438207988}
-  - component: {fileID: 438207987}
-  - component: {fileID: 438207986}
-  - component: {fileID: 438207985}
-  - component: {fileID: 438207984}
-  m_Layer: 0
-  m_Name: AIBrain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &438207984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438207983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7b2f13ba0cb2a24ba1aafa45e1b0fef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ProjectGame::ProjectGame.States.GameStates.ResultsGameState
---- !u!114 &438207985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438207983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac59486f7fdb3340ad34533b704c61e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ProjectGame::ProjectGame.States.GameStates.AIPlayerTurnGameState
---- !u!114 &438207986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438207983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e49deb71b2a61b041bd9d0e7573067d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ProjectGame::ProjectGame.States.GameStates.HumanPlayerTurnGameState
---- !u!114 &438207987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438207983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b14d1925cb89546409e6a64fc5ac2960, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ProjectGame::ProjectGame.States.GameStates.InitGameState
---- !u!114 &438207988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438207983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f063c1522f25d74ca3bdba86aa31040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ProjectGame::ProjectGame.AIBrain
-  _initGameState: {fileID: 438207987}
-  _humanPlayerTurnGameState: {fileID: 438207986}
-  _aiPlayerTurnGameState: {fileID: 438207985}
-  _resultsGameState: {fileID: 438207984}
---- !u!4 &438207989
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438207983}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0906, y: 0, z: 0.57579}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &546096214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2304,6 +2204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: ProjectGame::CharactersSpawner
   _characterDescriptions:
   - {fileID: 11400000, guid: 5ae2797b3aa97cc4280250fabf5272c6, type: 2}
+  - {fileID: 11400000, guid: f0d54f4c216766048b8c32a00df9e17d, type: 2}
 --- !u!4 &1359064708
 Transform:
   m_ObjectHideFlags: 0
@@ -3086,6 +2987,7 @@ GameObject:
   - component: {fileID: 1892307619}
   - component: {fileID: 1892307621}
   - component: {fileID: 1892307620}
+  - component: {fileID: 1892307622}
   m_Layer: 5
   m_Name: AbilitiesPanel
   m_TagString: Untagged
@@ -3157,6 +3059,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892307618}
   m_CullTransparentMesh: 1
+--- !u!114 &1892307622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892307618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78832da649e80f54987b6653926c83b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectGame::ProjectGame.UICharacterAbilitiesPanel
 --- !u!1 &1942749709
 GameObject:
   m_ObjectHideFlags: 0
@@ -3489,4 +3403,3 @@ SceneRoots:
   - {fileID: 1942749711}
   - {fileID: 331862798}
   - {fileID: 144137451}
-  - {fileID: 438207989}

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4246797a9260ce942a2d2e58a8340232, type: 3}
-  m_Name: RonniCharacterDescription
+  m_Name: BanditCharacterDescription
   m_EditorClassIdentifier: ProjectGame::CharacterDescription
-  _health: 3
-  _protection: 1
-  _initiative: 2
+  _health: 2
+  _protection: 2
+  _initiative: 4
   _abilities: []

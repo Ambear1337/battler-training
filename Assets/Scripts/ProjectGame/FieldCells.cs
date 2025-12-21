@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace ProjectGame
 {
+    [AllowFindInstanceIfNull]
     public sealed class FieldCells: SceneSingleton<FieldCells>
     {
         public int Count => _fieldCells.Count;

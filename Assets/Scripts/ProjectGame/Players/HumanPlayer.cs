@@ -30,26 +30,6 @@ namespace ProjectGame.Players
             
             _charactersSquad.Add(character);
         }
-
-        public int CalculateCharacterWithMostInitative()
-        {
-            if (_charactersSquad.Count == 0) 
-                return 0;
-
-            int maxInitiative = 0;
-            Character characterWithMostInitative = null;
-            
-            for (int i = 0; i < _charactersSquad.Count; i++)
-            {
-                if (_charactersSquad[i].Initiative.CurrentValue > maxInitiative)
-                {
-                    maxInitiative = _charactersSquad[i].Initiative.CurrentValue;
-                    characterWithMostInitative = _charactersSquad[i];
-                }
-            }
-
-            return maxInitiative;
-        }
         
         public void BeginTurn()
         {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ProjectGame
 {
-    internal sealed class CharacterMover: MonoBehaviour
+    public sealed class CharacterMover: MonoBehaviour
     {
         private int _currentCellIndex;
 
