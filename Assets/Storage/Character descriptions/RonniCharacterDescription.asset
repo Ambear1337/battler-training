@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4246797a9260ce942a2d2e58a8340232, type: 3}
+  m_Name: RonniCharacterDescription
+  m_EditorClassIdentifier: ProjectGame::CharacterDescription
+  _health: 3
+  _protection: 1
+  _initiative: 2
+  _abilities:
+  - {fileID: 11400000, guid: 7130e37ccaa05c7449279fad3b1a0cc7, type: 2}
+  - {fileID: 11400000, guid: 25ac79146d62e444eb450e0d08e11bad, type: 2}
+  - {fileID: 11400000, guid: 1b745f09280d33d439d0ca2e42691f02, type: 2}
+  - {fileID: 11400000, guid: cc94a0a0e0c90f74584a1dff994fb94f, type: 2}
+  - {fileID: 11400000, guid: ff29cba1101b39742b753bd6776ec595, type: 2}

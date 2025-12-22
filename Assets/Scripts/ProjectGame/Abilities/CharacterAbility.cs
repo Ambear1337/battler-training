@@ -6,7 +6,7 @@ namespace ProjectGame.Abilities
     {
         public virtual void TryUseAbility()
         {
-        
+            
         }
     }
 }

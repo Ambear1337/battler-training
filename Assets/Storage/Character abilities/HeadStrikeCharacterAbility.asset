@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4246797a9260ce942a2d2e58a8340232, type: 3}
-  m_Name: RonniCharacterDescription
-  m_EditorClassIdentifier: ProjectGame::CharacterDescription
-  _health: 3
-  _protection: 1
-  _initiative: 2
-  _abilities: []
+  m_Script: {fileID: 11500000, guid: 36815aea25339c040b2fec18e1144767, type: 3}
+  m_Name: HeadStrikeCharacterAbility
+  m_EditorClassIdentifier: ProjectGame::ProjectGame.Abilities.HeadStrikeCharacterAbility
