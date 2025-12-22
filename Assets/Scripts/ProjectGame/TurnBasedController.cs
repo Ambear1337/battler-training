@@ -69,8 +69,13 @@ namespace ProjectGame
             _charactersQueue = new Queue<Character>(tempCharacters);
         }
 
-        private void ChangeCurrentActingCharacter()
+        public void ChangeCurrentActingCharacter()
         {
+            if (_currentCharactersQueue.Count <= 0)
+            {
+                _currentCharactersQueue = new Queue<Character>(_charactersQueue);
+            }
+            
             _currentActingCharacter = _currentCharactersQueue.Dequeue();
 
             EventBus<CharacterEvent>.Raise(new CharacterEvent
@@ -78,6 +83,7 @@ namespace ProjectGame
                 Character = _currentActingCharacter
             });
             
+            // Временно
             EventBus<UIPlayerTurnTextEvent>.Raise(new UIPlayerTurnTextEvent()
             {
                 Player = _currentActingCharacter.PlayerOwner
@@ -87,24 +93,25 @@ namespace ProjectGame
                            $"player: {_currentActingCharacter.PlayerOwner}");
         }
 
-        private void SkipPlayerTurn(IPlayer player)
+        public void SkipCurrentPlayerTurn()
         {
-            if (player == _currentActingCharacter.PlayerOwner)
+            ChangeCurrentActingCharacter();
+        }
+
+        public void SkipHumanPlayerTurn()
+        {
+            if (_currentActingCharacter.PlayerOwner is HumanPlayer)
             {
                 ChangeCurrentActingCharacter();
-                
-                
             }
         }
 
-        private void SetHumanPlayer()
+        public void SkipAIPlayerTurn()
         {
-            
-        }
-
-        private void SetAIPlayer()
-        {
-            
+            if (_currentActingCharacter.PlayerOwner is AIPlayer)
+            {
+                ChangeCurrentActingCharacter();
+            }
         }
     }
 }
