@@ -1319,6 +1319,7 @@ GameObject:
   - component: {fileID: 674012611}
   - component: {fileID: 674012610}
   - component: {fileID: 674012609}
+  - component: {fileID: 674012612}
   m_Layer: 5
   m_Name: Ability_Move
   m_TagString: Untagged
@@ -1428,6 +1429,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674012607}
   m_CullTransparentMesh: 1
+--- !u!114 &674012612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674012607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef4fb624835ee94d87549eb43b9a725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectGame::UseMoveAbilityButton
 --- !u!1 &720390989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,6 +2086,7 @@ GameObject:
   - component: {fileID: 1097816004}
   - component: {fileID: 1097816003}
   - component: {fileID: 1097816002}
+  - component: {fileID: 1097816005}
   m_Layer: 5
   m_Name: Ability_Escape
   m_TagString: Untagged
@@ -2182,6 +2196,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097816000}
   m_CullTransparentMesh: 1
+--- !u!114 &1097816005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097816000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 401351d0f3781734cb2a3f43c36361cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectGame::UseEscapeAbilityButton
 --- !u!1 &1200977011
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,6 +2220,7 @@ GameObject:
   - component: {fileID: 1200977015}
   - component: {fileID: 1200977014}
   - component: {fileID: 1200977013}
+  - component: {fileID: 1200977016}
   m_Layer: 5
   m_Name: Ability1
   m_TagString: Untagged
@@ -2303,6 +2330,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200977011}
   m_CullTransparentMesh: 1
+--- !u!114 &1200977016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200977011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250c3c5e242333a45bfc6220abeb1685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectGame::UseFirstAbilityButton
 --- !u!1 &1202358748
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,6 +2354,7 @@ GameObject:
   - component: {fileID: 1202358752}
   - component: {fileID: 1202358751}
   - component: {fileID: 1202358750}
+  - component: {fileID: 1202358753}
   m_Layer: 5
   m_Name: Ability2
   m_TagString: Untagged
@@ -2424,6 +2464,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202358748}
   m_CullTransparentMesh: 1
+--- !u!114 &1202358753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202358748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b77acdd50b9b9489d7708b23d2d38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectGame::UseSecondAbilityButton
 --- !u!1 &1278520555
 GameObject:
   m_ObjectHideFlags: 0
@@ -2942,6 +2994,7 @@ GameObject:
   - component: {fileID: 1468440208}
   - component: {fileID: 1468440207}
   - component: {fileID: 1468440206}
+  - component: {fileID: 1468440209}
   m_Layer: 5
   m_Name: Ability3
   m_TagString: Untagged
@@ -3051,6 +3104,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468440204}
   m_CullTransparentMesh: 1
+--- !u!114 &1468440209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468440204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0310116326d12ea4490594533fb38437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectGame::UseThirdAbilityButton
 --- !u!1 &1630970158
 GameObject:
   m_ObjectHideFlags: 0
