@@ -1,9 +1,11 @@
 using System;
+using ProjectCore;
 using UnityEngine;
 
 namespace ProjectGame
 {
-    public sealed class CharacterMover: MonoBehaviour
+    [AllowCreateInstance]
+    public sealed class CharacterMover: SceneSingleton<CharacterMover>
     {
         private int _currentCellIndex;
 

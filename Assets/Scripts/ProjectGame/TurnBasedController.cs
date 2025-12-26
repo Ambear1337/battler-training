@@ -12,6 +12,7 @@ namespace ProjectGame
     public sealed class TurnBasedController: SceneSingleton<TurnBasedController>
     {
         private Character _currentActingCharacter;
+        public Character CurrentActingCharacter => _currentActingCharacter;
 
         private List<Character> _characters;
         private Queue<Character> _charactersQueue;
@@ -33,16 +34,6 @@ namespace ProjectGame
             _currentCharactersQueue = new Queue<Character>(_charactersQueue);
             
             ChangeCurrentActingCharacter();
-        }
-
-        private void OnEnable()
-        {
-            
-        }
-
-        private void OnDisable()
-        {
-            
         }
 
         public void RegisterCharacter(Character character)
