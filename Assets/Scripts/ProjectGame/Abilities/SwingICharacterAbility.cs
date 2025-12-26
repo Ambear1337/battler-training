@@ -3,9 +3,9 @@ using UnityEngine;
 namespace ProjectGame.Abilities
 {
     [CreateAssetMenu(fileName = "SwingCharacterAbility", menuName = "Battler/Character abilities/Swing character ability", order = 6)]
-    internal class SwingCharacterAbility : CharacterAbility
+    internal class SwingICharacterAbility : ScriptableObject, ICharacterAbility
     {
-        public override void TryUseAbility()
+        public void TryUseAbility()
         {
             
         }
