@@ -7,49 +7,36 @@ namespace ProjectGame
     [AllowCreateInstance]
     public sealed class CharacterMover: SceneSingleton<CharacterMover>
     {
-        private int _currentCellIndex;
-
-        private void Awake()
+        public bool MoveCharacter(int cellsCount, Character character)
         {
-            _currentCellIndex = -1;
-        }
-
-        public bool MoveCharacter(int deltaIndex, Character character)
-        {
-            deltaIndex = Math.Clamp(_currentCellIndex + deltaIndex, 0, FieldCells.SceneInstance.Count);
+            var direction =
+                    character.transform.localRotation == Quaternion.Euler(0, -90, 0) ?
+                      -1 :
+                       1 ;
             
-            if (FieldCells.SceneInstance.OccupyCell(deltaIndex, out var cellTransform))
-            {
-                if (_currentCellIndex != -1)
-                {
-                    FieldCells.SceneInstance.FreeCell(_currentCellIndex);
-                }
-
-                character.transform.position = cellTransform.position;
-                
-                _currentCellIndex = deltaIndex;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            var targetCell = character.CurrentCellIndex + (cellsCount * direction);
+            
+            return TeleportCharacterInternal(character, targetCell);
         }
 
         public bool TeleportCharacter(int cellIndex, Character character)
         {
-            cellIndex = Math.Clamp(cellIndex, 0, FieldCells.SceneInstance.Count);
+            return TeleportCharacterInternal(character, cellIndex);
+        }
+        
+        private bool TeleportCharacterInternal(Character character, int targetCell)
+        {
+            targetCell = Math.Clamp(targetCell,
+                0, FieldCells.SceneInstance.Count);
             
-            if (FieldCells.SceneInstance.OccupyCell(cellIndex, out var cellTransform))
+            if (FieldCells.SceneInstance.OccupyCell(targetCell, out var cellTransform))
             {
-                if (_currentCellIndex != -1)
-                {
-                    FieldCells.SceneInstance.FreeCell(_currentCellIndex);
-                }
+                FieldCells.SceneInstance.FreeCell(character.CurrentCellIndex);
+                
+                character.SetCellIndex(targetCell);
 
                 character.transform.position = cellTransform.position;
-                
-                _currentCellIndex = cellIndex;
+  
                 return true;
             }
             else

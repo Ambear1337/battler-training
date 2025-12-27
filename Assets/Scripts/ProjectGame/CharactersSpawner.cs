@@ -12,28 +12,30 @@ namespace ProjectGame
     
         public Character SpawnCharacter(IPlayer owner)
         {
+            //Спавнит персонажа игрока из пула персонажей
+            CharactersPool.SceneInstance.Pool.Get(out var character);
+            
             int randomCell;
 
             if (owner is HumanPlayer humanPlayer)
             {
                 randomCell = FieldCells.SceneInstance.GetFreeCell(FieldCellSide.Left);
+                character.transform.localRotation = Quaternion.Euler(0, 90, 0);
             }
             else if (owner is AIPlayer aiPlayer)
             {
                 randomCell = FieldCells.SceneInstance.GetFreeCell(FieldCellSide.Right);
+                character.transform.localRotation = Quaternion.Euler(0, -90, 0);
             }
             else
             {
                 randomCell = 0;
                 Debug.LogError("RandomCell is not defiened");
             }
-            
-            //Спавнит персонажа игрока из пула персонажей
-            CharactersPool.SceneInstance.Pool.Get(out var character);
         
             character.SetupCharacter(owner, _characterDescriptions.TakeRandom());
 
-            character.CharacterMover.TeleportCharacter(randomCell, character);
+            CharacterMover.SceneInstance.TeleportCharacter(randomCell, character);
 
             return character;
         }

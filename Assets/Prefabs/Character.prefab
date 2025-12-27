@@ -215,7 +215,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8464387635694617400}
   - component: {fileID: 8265960441870586711}
-  - component: {fileID: 2532329604308044907}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -257,19 +256,7 @@ MonoBehaviour:
   _health: {fileID: 1947412945164714224}
   _protection: {fileID: 107270896316812717}
   _initiative: {fileID: 4648122883731251334}
-  _characterMover: {fileID: 2532329604308044907}
---- !u!114 &2532329604308044907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7656905872296429201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 231b5f03ea152054a99692f75878c528, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ProjectGame::ProjectGame.CharacterMover
+  _characterMover: {fileID: 0}
 --- !u!1 &7761837136012152128
 GameObject:
   m_ObjectHideFlags: 0

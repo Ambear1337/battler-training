@@ -7,7 +7,9 @@ namespace ProjectGame.Abilities
     {
         public void TryUseAbility()
         {
-        
+            var currentCharacter = TurnBasedController.SceneInstance.CurrentActingCharacter;
+
+            CharacterMover.SceneInstance.MoveCharacter(1, currentCharacter);
         }
     }
 }

@@ -12,11 +12,11 @@ namespace ProjectGame
         [SerializeField] private ValueComponent _protection;
         public ValueComponent Initiative => _initiative;
         [SerializeField] private ValueComponent _initiative;
-
-        [SerializeField] private CharacterMover _characterMover;
-        public CharacterMover CharacterMover => _characterMover;
     
         private CharacterDescription _characterDescription;
+
+        private int _currentCellIndex;
+        public int CurrentCellIndex => _currentCellIndex;
 
         private IPlayer _playerOwner;
         public IPlayer PlayerOwner => _playerOwner;
@@ -45,6 +45,11 @@ namespace ProjectGame
         {
             if (!TurnBasedController.IsInstanceNull)
                 TurnBasedController.SceneInstance.UnregisterCharacter(this);
+        }
+        
+        public void SetCellIndex(int cellIndex)
+        {
+            _currentCellIndex = cellIndex;
         }
     }
 }

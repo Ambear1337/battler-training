@@ -355,9 +355,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 205097424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cf1cf2052114719a93386649a4ace25, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ef4fb624835ee94d87549eb43b9a725, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: ProjectGame::ProjectGame.Buttons.SkipHumanPlayerTurnButton
+  m_EditorClassIdentifier: ProjectGame::UseAbilityButton
+  _abilityLogic:
+    underlyingValue: {fileID: 0}
 --- !u!1001 &206218993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1440,7 +1442,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ef4fb624835ee94d87549eb43b9a725, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: ProjectGame::UseMoveAbilityButton
+  m_EditorClassIdentifier: ProjectGame::UseAbilityButton
+  _abilityLogic:
+    underlyingValue: {fileID: 11400000, guid: cc94a0a0e0c90f74584a1dff994fb94f, type: 2}
 --- !u!1 &720390989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,9 +2209,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1097816000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 401351d0f3781734cb2a3f43c36361cd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ef4fb624835ee94d87549eb43b9a725, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: ProjectGame::UseEscapeAbilityButton
+  m_EditorClassIdentifier: ProjectGame::UseAbilityButton
+  _abilityLogic:
+    underlyingValue: {fileID: 0}
 --- !u!1 &1200977011
 GameObject:
   m_ObjectHideFlags: 0
@@ -2339,9 +2345,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1200977011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 250c3c5e242333a45bfc6220abeb1685, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ef4fb624835ee94d87549eb43b9a725, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: ProjectGame::UseFirstAbilityButton
+  m_EditorClassIdentifier: ProjectGame::UseAbilityButton
+  _abilityLogic:
+    underlyingValue: {fileID: 0}
 --- !u!1 &1202358748
 GameObject:
   m_ObjectHideFlags: 0
@@ -2473,9 +2481,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1202358748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77b77acdd50b9b9489d7708b23d2d38b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ef4fb624835ee94d87549eb43b9a725, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: ProjectGame::UseSecondAbilityButton
+  m_EditorClassIdentifier: ProjectGame::UseAbilityButton
+  _abilityLogic:
+    underlyingValue: {fileID: 0}
 --- !u!1 &1278520555
 GameObject:
   m_ObjectHideFlags: 0
@@ -2647,7 +2657,7 @@ GameObject:
   - component: {fileID: 1389751255}
   - component: {fileID: 1389751254}
   m_Layer: 5
-  m_Name: AbilitiesPanel (1)
+  m_Name: AbilitiesDescriptionPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3113,9 +3123,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1468440204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0310116326d12ea4490594533fb38437, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ef4fb624835ee94d87549eb43b9a725, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: ProjectGame::UseThirdAbilityButton
+  m_EditorClassIdentifier: ProjectGame::UseAbilityButton
+  _abilityLogic:
+    underlyingValue: {fileID: 11400000, guid: ff29cba1101b39742b753bd6776ec595, type: 2}
 --- !u!1 &1630970158
 GameObject:
   m_ObjectHideFlags: 0
@@ -3768,6 +3780,7 @@ GameObject:
   - component: {fileID: 1938598313}
   - component: {fileID: 1938598312}
   - component: {fileID: 1938598311}
+  - component: {fileID: 1938598314}
   m_Layer: 5
   m_Name: SkipTurn
   m_TagString: Untagged
@@ -3877,6 +3890,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938598309}
   m_CullTransparentMesh: 1
+--- !u!114 &1938598314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938598309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39053f049b1a70be282cd21aa8270d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectGame::SkipCurrentPlayerTurnButton
 --- !u!1 &1942749709
 GameObject:
   m_ObjectHideFlags: 0
