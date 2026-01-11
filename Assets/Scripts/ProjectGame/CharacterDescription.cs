@@ -10,12 +10,11 @@ namespace ProjectGame
         [SerializeField] private int _health;
         [SerializeField] private int _protection;
         [SerializeField] private int _initiative;
-
-        [SerializeField] List<ICharacterAbility> _abilities;
+        [SerializeField] private List<InterfaceReference<ICharacterAbility>> _abilities;
 
         public int Health => _health;
         public int Protection => _protection;
         public int Initiative => _initiative;
-        public IReadOnlyList<ICharacterAbility> Abilities => _abilities;
+        public IReadOnlyList<InterfaceReference<ICharacterAbility>> Abilities => _abilities;
     }
 }

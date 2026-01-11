@@ -14,6 +14,7 @@ namespace ProjectGame
         [SerializeField] private ValueComponent _initiative;
     
         private CharacterDescription _characterDescription;
+        public CharacterDescription CharacterDescription => _characterDescription;
 
         private int _currentCellIndex;
         public int CurrentCellIndex => _currentCellIndex;
