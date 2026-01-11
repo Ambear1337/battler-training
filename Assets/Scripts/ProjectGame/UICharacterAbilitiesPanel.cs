@@ -46,16 +46,18 @@ namespace ProjectGame
             for (int i = 0; i < _abilitiesButtons.Length; i++)
             {
                 var ability = characterEvent.Character.CharacterDescription.Abilities[i].Value;
-                _abilitiesButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = ability.AbilityName;
+                var abilityButton = _abilitiesButtons[i];
+                
+                abilityButton.GetComponentInChildren<TextMeshProUGUI>().text = ability.AbilityName;
                 
                 if (ability is NullCharacterAbility)
                 {
-                    _abilitiesButtons[i].interactable = false;
+                    abilityButton.interactable = false;
                 }
                 else
                 {
-                    _abilitiesButtons[i].interactable = true;
-                    _abilitiesButtons[i].GetComponent<UseAbilityButton>().SetupAbilityButton(ability);
+                    abilityButton.interactable = true;
+                    abilityButton.GetComponent<UseAbilityButton>().SetupAbilityButton(ability);
                 }
             }
         }

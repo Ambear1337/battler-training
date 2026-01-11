@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ProjectGame.Abilities
 {
@@ -10,7 +11,8 @@ namespace ProjectGame.Abilities
 
         public void TryUseAbility()
         {
-            
+            // Временно
+            SceneManager.LoadScene(0);
         }
     }
 }
