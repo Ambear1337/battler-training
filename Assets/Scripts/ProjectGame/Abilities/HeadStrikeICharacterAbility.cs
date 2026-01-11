@@ -6,6 +6,10 @@ namespace ProjectGame.Abilities
 
     internal class HeadStrikeICharacterAbility : ScriptableObject, ICharacterAbility
     {
+        [SerializeField] private int _cost = 1;
+        
+        public string AbilityName => "HeadStrike";
+
         public void TryUseAbility()
         {
         
