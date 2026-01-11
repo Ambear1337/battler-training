@@ -1,13 +1,19 @@
 using System;
+using CodiceApp;
 using ProjectEventBus;
+using ProjectGame.Abilities;
 using ProjectGame.Players;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ProjectGame
 {
     public sealed class UICharacterAbilitiesPanel: MonoBehaviour
     {
         [SerializeField] private GameObject _humanPlayerUI;
+
+        [SerializeField] private Button[] _abilitiesButtons =  new Button[5];
         
         private EventBinding<CharacterEvent> _characterEventBinding;
 
@@ -24,7 +30,34 @@ namespace ProjectGame
 
         private void HandleCharacterEvent(CharacterEvent characterEvent)
         {
-            _humanPlayerUI.SetActive(characterEvent.Character.PlayerOwner is HumanPlayer);
+            if (characterEvent.Character.PlayerOwner is HumanPlayer)
+            {
+                _humanPlayerUI.SetActive(true);
+                UpdateUI(characterEvent);
+            }
+            else
+            {
+                _humanPlayerUI.SetActive(false);
+            }
+        }
+
+        private void UpdateUI(CharacterEvent characterEvent)
+        {
+            for (int i = 0; i < _abilitiesButtons.Length; i++)
+            {
+                var ability = characterEvent.Character.CharacterDescription.Abilities[i].Value;
+                _abilitiesButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = ability.AbilityName;
+                
+                if (ability is NullCharacterAbility)
+                {
+                    _abilitiesButtons[i].interactable = false;
+                }
+                else
+                {
+                    _abilitiesButtons[i].interactable = true;
+                    _abilitiesButtons[i].GetComponent<UseAbilityButton>().SetupAbilityButton(ability);
+                }
+            }
         }
     }
 }
