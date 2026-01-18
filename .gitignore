@@ -106,3 +106,7 @@ InitTestScene*.unity*
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 '.idea'
+
+# Exclude InitArgs package cuz it isn't open source
+/[Pp]ackages/[Cc]om.sisus.init-args/*
+/[Pp]ackages/[Cc]om.sisus.shared/*
