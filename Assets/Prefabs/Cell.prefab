@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1593271183224444680}
   - component: {fileID: 7254364373274483848}
   - component: {fileID: 2437221747039751841}
+  - component: {fileID: 7118345417400743847}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -111,6 +112,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7118345417400743847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6848707253338253159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f61cd2685dc7b74eac2d8c49a67a1d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectGame::ProjectGame.GraphicsObject
+  meshRenderer: {fileID: 7254364373274483848}
 --- !u!1 &7613713626731222358
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +135,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6766990685854822817}
   - component: {fileID: 2195552098425118154}
-  m_Layer: 0
+  - component: {fileID: 3639520559029454035}
+  m_Layer: 6
   m_Name: Cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,3 +171,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5dc2bb4b39ff374d84d72795a350f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ProjectGame::FieldCell
+  _gfx: {fileID: 7118345417400743847}
+--- !u!65 &3639520559029454035
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7613713626731222358}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.14391288, z: 1}
+  m_Center: {x: 0, y: 0.00016548857, z: 0}

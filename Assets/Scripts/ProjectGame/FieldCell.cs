@@ -4,8 +4,11 @@ namespace ProjectGame
 {
     public delegate void OccupyCell(bool result);
 
-    public sealed class FieldCell: MonoBehaviour
+    public sealed class FieldCell: MonoBehaviour, IClickable
     {
+        [SerializeField] private GraphicsObject _gfx;
+        public GraphicsObject GFX => _gfx;
+        
         public event OccupyCell OccupyCell;
     
         private bool _isFree = true;

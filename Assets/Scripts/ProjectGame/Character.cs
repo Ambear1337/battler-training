@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ProjectGame
 {
-    public sealed class Character: MonoBehaviour
+    public sealed class Character: MonoBehaviour, IClickable
     {
         public ValueComponent Health => _health;
         [SerializeField] private ValueComponent _health;
@@ -12,6 +12,9 @@ namespace ProjectGame
         [SerializeField] private ValueComponent _protection;
         public ValueComponent Initiative => _initiative;
         [SerializeField] private ValueComponent _initiative;
+
+        [SerializeField] private GraphicsObject _gfx;
+        public GraphicsObject GFX => _gfx;
     
         private CharacterDescription _characterDescription;
         public CharacterDescription CharacterDescription => _characterDescription;
@@ -21,6 +24,7 @@ namespace ProjectGame
 
         private IPlayer _playerOwner;
         public IPlayer PlayerOwner => _playerOwner;
+        
 
         public void SetupCharacter(IPlayer playerOwner, CharacterDescription characterDescription)
         {
