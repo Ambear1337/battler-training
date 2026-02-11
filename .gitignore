@@ -110,3 +110,6 @@ InitTestScene*.unity*
 # Exclude InitArgs package cuz it isn't open source
 /[Pp]ackages/[Cc]om.sisus.init-args/*
 /[Pp]ackages/[Cc]om.sisus.shared/*
+
+# Exclude ConsolePro package cuz it isn't open source
+/[Aa]ssets/[Cc]onsolePro/*

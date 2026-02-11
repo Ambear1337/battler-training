@@ -2,24 +2,32 @@ using System;
 using System.Collections.Generic;
 using ProjectEventBus;
 using ProjectGame.Buttons;
+using Sisus.Init;
 using UnityEngine;
 
 namespace ProjectGame.Players
 {
-    public class HumanPlayer: MonoBehaviour, IPlayer
+    public class HumanPlayer: MonoBehaviour<CharactersSpawner>, IPlayer
     {
         private List<Character> _charactersSquad;
         
         private EventBinding<PlayerButtonEvent> _spawnCharacterButtonEventBinding;
         
+        private CharactersSpawner _charactersSpawner;
+        
+        protected override void Init(CharactersSpawner argument)
+        {
+            _charactersSpawner = argument;
+        }
+        
         private void Start()
         {
-            var character = CharactersSpawner.SceneInstance.SpawnCharacter(this);
+            var character = _charactersSpawner.SpawnCharacter(this);
             
             _charactersSquad.Add(character);
         }
 
-        private void Awake()
+        protected override void OnAwake()
         {
             _charactersSquad = new List<Character>(3);
         }
@@ -43,22 +51,22 @@ namespace ProjectGame.Players
         [ContextMenu("Spawn character")]
         public void SpawnRandomCharacter()
         {
-            CharactersSpawner.SceneInstance.ClearCharacters(_charactersSquad);
+            _charactersSpawner.ClearCharacters(_charactersSquad);
             _charactersSquad.Clear();
             
-            var character = CharactersSpawner.SceneInstance.SpawnCharacter(this);
+            var character = _charactersSpawner.SpawnCharacter(this);
             
             _charactersSquad.Add(character);
         }
         
         public void BeginTurn()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public void EndTurn()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

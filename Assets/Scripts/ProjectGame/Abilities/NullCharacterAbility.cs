@@ -2,7 +2,7 @@
 
 namespace ProjectGame.Abilities
 {
-    [CreateAssetMenu(fileName = "NullCharacterAbility", menuName = "Battler/Character abilities/Null character ability", order = 100)]
+    [CreateAssetMenu(fileName = "NullCharacterAbility", menuName = "Battler/Character abilities/Null character ability")]
     public class NullCharacterAbility: ScriptableObject, ICharacterAbility
     {
         public string AbilityName => " ";

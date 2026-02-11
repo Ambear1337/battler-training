@@ -3,6 +3,7 @@ using ProjectCore;
 using ProjectEventBus;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.XR;
 
 namespace ProjectGame
@@ -11,21 +12,28 @@ namespace ProjectGame
     {
         private IClickable _currentClickableObject;
         
-        [SerializeField] private LayerMask clickableLayerMask;
+        [SerializeField] private LayerMask _clickableLayerMask;
+        [SerializeField] private InputActionReference _mouseClick;
 
-        public void MouseMove(InputAction.CallbackContext ctx)
+        private void OnEnable()
         {
-            if (!ctx.performed) return;
+            if (_mouseClick != null && _mouseClick.action != null)
+            {
+                _mouseClick.action.canceled += MouseClick;
+            }
+        }
 
-            LightDelightClickableObject();
+        private void OnDisable()
+        {
+            if (_mouseClick != null && _mouseClick.action != null)
+            {
+                _mouseClick.action.canceled -= MouseClick;
+            }
         }
 
         public void MouseClick(InputAction.CallbackContext ctx)
         {
-            if (ctx.performed)
-            {
-                HandleMouseEvent();
-            }
+            LightDelightClickableObject();
         }
 
         private IClickable HandleMouseEvent()
@@ -44,30 +52,18 @@ namespace ProjectGame
             
             Debug.DrawRay(ray.origin, ray.direction * 100, Color.red);
 
-            return Physics.Raycast(ray, out var hit, 1000f, clickableLayerMask) 
+            return Physics.Raycast(ray, out var hit, 1000f, _clickableLayerMask) 
                 ? hit.transform.gameObject.GetComponent<IClickable>()
                 : null;
         }
 
         private void LightDelightClickableObject()
         {
-            if (_currentClickableObject == null)
-            {
-                _currentClickableObject = HandleMouseEvent();
-            }
-            else
-            {
-                var clickable = HandleMouseEvent();
-                if (clickable == null)
-                {
-                    _currentClickableObject.GFX.DelightObject();
-                    _currentClickableObject = null;
-                }
-                else
-                {
-                    clickable?.GFX.LightObject();
-                }
-            }
+            _currentClickableObject?.GFX.DelightObject();
+
+            _currentClickableObject = HandleMouseEvent();
+
+            _currentClickableObject?.GFX.LightObject();
         }
     }
 }

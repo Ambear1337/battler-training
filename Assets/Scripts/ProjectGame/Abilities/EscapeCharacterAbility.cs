@@ -11,8 +11,7 @@ namespace ProjectGame.Abilities
 
         public void TryUseAbility()
         {
-            // Временно
-            SceneManager.LoadScene(0);
+            
         }
     }
 }

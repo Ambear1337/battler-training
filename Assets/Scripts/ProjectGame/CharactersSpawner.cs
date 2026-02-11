@@ -2,21 +2,30 @@ using System.Collections.Generic;
 using ProjectCore;
 using ProjectCore.Extensions;
 using ProjectGame.Players;
+using Sisus.Init;
 using UnityEngine;
 
 namespace ProjectGame
 {
-    internal sealed class CharactersSpawner: SceneSingleton<CharactersSpawner>
+    [Service(FindFromScene = true)]
+    public sealed class CharactersSpawner: MonoBehaviour<CharactersPool>
     {
         [SerializeField] private CharacterDescription[] _characterDescriptions;
+        
+        private CharactersPool _charactersPool;
     
+        protected override void Init(CharactersPool argument)
+        {
+            _charactersPool = argument;
+        }
+        
         public Character SpawnCharacter(IPlayer owner)
         {
             //Спавнит персонажа игрока из пула персонажей
-            CharactersPool.SceneInstance.Pool.Get(out var character);
+            _charactersPool.Pool.Get(out var character);
             
             int randomCell;
-
+            
             if (owner is HumanPlayer humanPlayer)
             {
                 randomCell = FieldCells.SceneInstance.GetFreeCell(FieldCellSide.Left);
@@ -44,7 +53,7 @@ namespace ProjectGame
         {
             for (int characterIndex = 0; characterIndex < characters.Count; characterIndex++)
             {
-                CharactersPool.SceneInstance.Pool.Release(characters[characterIndex]);
+                _charactersPool.Pool.Release(characters[characterIndex]);
             }
         }
     }

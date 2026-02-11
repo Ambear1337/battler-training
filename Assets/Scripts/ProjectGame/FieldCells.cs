@@ -40,6 +40,8 @@ namespace ProjectGame
             
             return index;
         }
+        
+        //GetCellContent => out Character/null
 
         public int GetFreeCell(FieldCellSide side)
         {

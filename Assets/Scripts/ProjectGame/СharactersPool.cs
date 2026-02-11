@@ -1,18 +1,18 @@
-using ProjectCore;
+using Sisus.Init;
 using UnityEngine;
 using UnityEngine.Pool;
 
 namespace ProjectGame
 {
-    [AllowFindInstanceIfNull]
-    internal class CharactersPool: SceneSingleton<CharactersPool>
+    [Service(AddressableKey = "CharactersPool", Instantiate = true)]
+    public class CharactersPool: MonoBehaviour
     {
         // The pool holds plain GameObjects (you can swap this for any component type).
         public ObjectPool<Character> Pool;
 
         [SerializeField] private Character _character;
 
-        protected override void OnSingletonInit()
+        private void Awake()
         {
             // Create a pool with the four core callbacks.
             Pool = new ObjectPool<Character>(

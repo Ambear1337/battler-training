@@ -1,3 +1,4 @@
+using Sisus.Init;
 using UnityEngine;
 
 namespace ProjectGame.Abilities
